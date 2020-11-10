@@ -6,7 +6,7 @@ https://glacial-springs-05206.herokuapp.com/
 
 ---
 
-To install locally download project and dependencies
+To install locally, download project and dependencies
 ```
 npm install
 ```
