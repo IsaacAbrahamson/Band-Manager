@@ -5,11 +5,11 @@ const mysql = require('mysql')
 // Render Index Page
 router.get('/', (req, res, next) => {
   // Create database connection
-  const connection = mysql.createConnection(process.env.CLEARDB_DATABASE_URL)
+  const connection = mysql.createConnection(process.env.JAWSDB_URL)
   connection.connect()
 
   connection.query(
-    'SELECT * FROM orders',
+    'SELECT * FROM service',
     (error, results, fields) => {
       // Handle errors
       if (error) throw error
@@ -31,9 +31,9 @@ function handleResults(results) {
   let output = []
   for (let result of results) {    
     output.push({
-      orderid: result.orderid,
-      name: result.name,
-      desc: result.desc
+      id: result.Service_ID,
+      time: result.Svc_DateTime,
+      theme: result.Theme_Event
     })
   }
   return output
