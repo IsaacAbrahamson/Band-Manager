@@ -1,16 +1,22 @@
 // Load ENV variables
-require('dotenv').config()
+import env from 'dotenv'
+env.config()
 
 // Load HTTP dependencies
-const createError = require('http-errors')
-const express = require('express')
-const path = require('path')
-const cookieParser = require('cookie-parser')
-const logger = require('morgan')
+import createError from 'http-errors'
+import express from 'express'
+import path from 'path'
+import cookieParser from 'cookie-parser'
+import logger from 'morgan'
 
 // Load route files
-const indexRouter = require('./routes/index')
-const serviceRouter = require('./routes/service')
+import indexRouter from './routes/index.js'
+import serviceRouter from './routes/service.js'
+
+// Get current directory
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 // Initialize Express App
 const app = express()
@@ -46,4 +52,4 @@ app.use((err, req, res, next) => {
   res.render('error')
 })
 
-module.exports = app
+export default app

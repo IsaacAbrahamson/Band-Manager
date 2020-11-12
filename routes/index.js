@@ -1,6 +1,6 @@
-const express = require('express')
+import mysql from 'mysql'
+import express from 'express'
 const router = express.Router()
-const mysql = require('mysql')
 
 // Render Index Page
 router.get('/', (req, res, next) => {
@@ -39,4 +39,8 @@ function handleResults(results) {
   return output
 }
 
-module.exports = router
+function extractTime(date) {
+  
+}
+
+export default router
