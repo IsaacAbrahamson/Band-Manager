@@ -29,10 +29,15 @@ router.get('/', (req, res, next) => {
 
 function handleResults(results) {
   let output = []
-  for (let result of results) {    
+  for (let result of results) {   
+    // Parse date
+    let datetime = new Date(Date.parse(result.Svc_DateTime))
+    let date = ((datetime.getMonth() > 8) ? (datetime.getMonth() + 1) : ('0' + (datetime.getMonth() + 1))) + '/' + ((datetime.getDate() > 9) ? datetime.getDate() : ('0' + datetime.getDate())) + '/' + datetime.getFullYear()
+    let time = datetime.toLocaleTimeString().replace(/:\d+ /, ' ')
+    
     output.push({
-      id: result.Service_ID,
-      time: result.Svc_DateTime,
+      date: date,
+      time: time,
       theme: result.Theme_Event
     })
   }
