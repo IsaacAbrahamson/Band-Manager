@@ -3,17 +3,11 @@ import { parseDate } from '../utils.js'
 import express from 'express'
 const router = express.Router()
 
-// Render No service specified Page
-router.get('/', (req, res) => {
-  res.send('no service specified')
-})
-
-// Render Service Detail Page
 router.get('/:id', (req, res) => {
   const id = req.params.id
   const connection = mysql.createConnection(process.env.JAWSDB_URL)
   connection.connect()
-  connection.query('SELECT * FROM service_view WHERE service_ID = ?', [id], (error, results, fields) => {
+  connection.query('SELECT * FROM service_view WHERE service_ID = ?', [id], (error, results) => {
     if (error) throw error
     let output = handleResults(results)
     console.log(output)
