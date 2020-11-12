@@ -1,21 +1,22 @@
-import mysql from 'mysql'
-import { parseDate } from '../utils.js'
+import { parseDate, connectDB } from '../utils.js'
 import express from 'express'
 const router = express.Router()
 
-router.get('/', (req, res, next) => {
-  const connection = mysql.createConnection(process.env.JAWSDB_URL)
-  connection.connect()
-  connection.query('SELECT * FROM service', (error, results) => {
-    if (error) throw error
+router.get('/', async (req, res) => {
+  const db = connectDB()
+  try {
+    const results = await db.query('SELECT * FROM service')
     let output = handleResults(results)
     res.render('index', {
       title: 'Service Manager',
       message: 'Service Manager',
       output
     })
-  })
-  connection.end()
+  } catch (error) {
+    if (error) throw error
+  } finally {
+    await db.close()
+  }
 })
 
 function handleResults(results) {

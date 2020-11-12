@@ -1,3 +1,20 @@
+import util from 'util'
+import mysql from 'mysql'
+
+// Helper function to simplify database connection with async functions
+// https://codeburst.io/node-js-mysql-and-async-await-6fb25b01b628
+function connectDB() {
+  const db = mysql.createConnection(process.env.JAWSDB_URL)
+  return {  
+    query(sql, args) {
+      return util.promisify(db.query).call(db, sql, args)
+    },
+    close() {
+      return util.promisify(db.end).call(db)
+    }
+  }
+}
+
 // This function takes a timstamp and returns the date and time
 function parseDate(timestamp) {
   let datetime = new Date(Date.parse(timestamp))
@@ -6,4 +23,4 @@ function parseDate(timestamp) {
   return [date, time]
 }
 
-export { parseDate }
+export { parseDate, connectDB }
