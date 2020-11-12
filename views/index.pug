@@ -3,10 +3,9 @@ html
     title= title
     link(rel="stylesheet" type="text/css" href="/stylesheets/style.css")
   body
-    h1= message
     p This application executes a simple query on a MySQL database.
     table
-      each row in database
+      each row in output
         tr
           td= row.date
           td= row.time

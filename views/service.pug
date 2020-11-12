@@ -1,1 +1,12 @@
-h3= message
+html
+  head
+    title= title
+    link(rel="stylesheet" type="text/css" href="/stylesheets/style.css")
+  body
+    a(href='/') HOME
+    h1 Service ##{id}
+    table
+      each row in output
+        tr
+          each value in row
+            td= value

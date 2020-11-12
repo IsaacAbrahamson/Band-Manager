@@ -16,11 +16,10 @@ router.get('/', (req, res, next) => {
 
       // Render results
       let output = handleResults(results)
-      console.log(output)
       res.render('index', {
         title: 'Demo App',
         message: 'Demo App:',
-        database: output
+        output
       })
     }
   )
@@ -30,22 +29,22 @@ router.get('/', (req, res, next) => {
 function handleResults(results) {
   let output = []
   for (let result of results) {   
-    // Parse date
-    let datetime = new Date(Date.parse(result.Svc_DateTime))
-    let date = ((datetime.getMonth() > 8) ? (datetime.getMonth() + 1) : ('0' + (datetime.getMonth() + 1))) + '/' + ((datetime.getDate() > 9) ? datetime.getDate() : ('0' + datetime.getDate())) + '/' + datetime.getFullYear()
-    let time = datetime.toLocaleTimeString().replace(/:\d+ /, ' ')
-    
+    let date = parseDate(result.Svc_DateTime)    
     output.push({
-      date: date,
-      time: time,
-      theme: result.Theme_Event
+      date: date[0],
+      time: date[1],
+      theme: result.Theme_Event,
+      id: result.Service_ID
     })
   }
   return output
 }
 
-function extractTime(date) {
-  
+function parseDate(timestamp) {
+  let datetime = new Date(Date.parse(timestamp))
+  let date = ((datetime.getMonth() > 8) ? (datetime.getMonth() + 1) : ('0' + (datetime.getMonth() + 1))) + '/' + ((datetime.getDate() > 9) ? datetime.getDate() : ('0' + datetime.getDate())) + '/' + datetime.getFullYear()
+  let time = datetime.toLocaleTimeString().replace(/:\d+ /, ' ')
+  return [date, time]
 }
 
 export default router
