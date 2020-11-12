@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
       output
     })
   } catch (error) {
-    if (error) throw error
+    throw error
   } finally {
     await db.close()
   }
