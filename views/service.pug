@@ -14,7 +14,7 @@ html
     form(action="/service/new" method="post")
       p Items marked <span style="color: red;">*</span> are required
       .input
-        label(for="time") Enter time (yyyy-mm-dd 00:00): <span style="color: red;">*</span>
+        label(for="time") Enter time in format "yyyy-mm-dd 17:30": <span style="color: red;">*</span>
         input(type="text" id="time" name="time" value=time required)
       .input
         label(for="theme") Enter theme:

@@ -26,7 +26,20 @@ router.get('/:id', async (req, res) => {
 })
 
 router.post('/new', async (req, res) => {
-  res.send(req.body)
+  const time = req.body.time
+  let theme = req.body.theme != null ? req.body.theme : null
+  let songleader = req.body.songleader != '' ? req.body.songleader : null
+  console.log(theme, songleader)
+  
+  const db = connectDB()
+  try {
+    const update = await db.query('CALL create_service(?, ?, ?, @output)', [time, theme, songleader])
+    res.send(update[0][0].status)
+  } catch (error) {
+    throw error
+  } finally {
+    await db.close()
+  }
 })
 
 function handleServiceResults(results) {
