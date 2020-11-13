@@ -19,11 +19,11 @@ table {
   margin-top: 20px;
 }
 
-.input * {
+label, input, select {
   display:block;
   margin-top: 5px;
 }
 
-label {
+label, p {
   font-weight: bold;
 }

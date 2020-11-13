@@ -11,9 +11,10 @@ html
           each value in row
             td= value
     form(action="/service/new" method="post")
+      p Items marked <span style="color: red;">*</span> are required
       .input
-        label(for="time") Enter time (yyyy/mm/dd 00:00):
-        input(type="text" id="time" name="time" value=time)
+        label(for="time") Enter time (yyyy/mm/dd 00:00): <span style="color: red;">*</span>
+        input(type="text" id="time" name="time" value=time required)
       .input
         label(for="theme") Enter theme:
         input(type="text" id="theme" name="theme" value=theme)
