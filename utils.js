@@ -15,7 +15,7 @@ function connectDB() {
   }
 }
 
-// This function takes a timstamp and returns the date and time
+// This function takes a timestamp and returns the date and time
 function parseDate(timestamp) {
   let datetime = new Date(Date.parse(timestamp))
   let date = ((datetime.getMonth() > 8) ? (datetime.getMonth() + 1) : ('0' + (datetime.getMonth() + 1))) + '/' + ((datetime.getDate() > 9) ? datetime.getDate() : ('0' + datetime.getDate())) + '/' + datetime.getFullYear()
@@ -23,4 +23,12 @@ function parseDate(timestamp) {
   return [date, time]
 }
 
-export { parseDate, connectDB }
+// This function returns the time in the correct entry format
+function formatTime(timestamp) {
+  let datetime = new Date(Date.parse(timestamp))
+  let date = datetime.getFullYear() + '/' + ((datetime.getMonth() > 8) ? (datetime.getMonth() + 1) : ('0' + (datetime.getMonth() + 1))) + '/' + ((datetime.getDate() > 9) ? datetime.getDate() : ('0' + datetime.getDate()))
+  let time = datetime.toLocaleTimeString().replace(/:\d+ /, ' ')
+  return date + ' ' + time
+}
+
+export { parseDate, connectDB, formatTime }

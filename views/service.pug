@@ -6,7 +6,20 @@ html
     a(href='/') HOME
     h1 Service ##{id}
     table
-      each row in output
+      each row in serviceOutput
         tr
           each value in row
             td= value
+    form(action="/service/new" method="post")
+      .input
+        label(for="time") Enter time (yyyy/mm/dd 00:00):
+        input(type="text" id="time" name="time" value=time)
+      .input
+        label(for="theme") Enter theme:
+        input(type="text" id="theme" name="theme" value=theme)
+      .input
+        label(for="songleader") Select Songleader
+        select(id="songleader" name="songleader")
+          each songleader in slOutput
+            option(value=songleader) #{songleader}
+      input(type="submit" value="CREATE SERVICE")

@@ -14,3 +14,16 @@ table, th, td {
 table {
   width: 100%;
 }
+
+.input {
+  margin-top: 20px;
+}
+
+.input * {
+  display:block;
+  margin-top: 5px;
+}
+
+label {
+  font-weight: bold;
+}
