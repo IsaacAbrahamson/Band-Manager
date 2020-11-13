@@ -51,7 +51,9 @@ function handleSongleaderResults(results) {
   let output = []
   output.push(null)
   for (let leader of results) {
-    output.push(leader.name)
+    let name = leader.name
+    let id = leader.Person_ID
+    output.push({name, id})
   }
   return output
 }

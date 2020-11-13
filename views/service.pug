@@ -10,6 +10,7 @@ html
         tr
           each value in row
             td= value
+
     form(action="/service/new" method="post")
       p Items marked <span style="color: red;">*</span> are required
       .input
@@ -22,5 +23,8 @@ html
         label(for="songleader") Select Songleader
         select(id="songleader" name="songleader")
           each songleader in slOutput
-            option(value=songleader) #{songleader}
+            unless songleader == null
+              option(value=songleader.id) #{songleader.name}
+            else
+              option(value='')
       input(type="submit" value="CREATE SERVICE")
