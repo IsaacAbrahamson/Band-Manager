@@ -56,16 +56,3 @@ tr:nth-child(odd) {background: #fff}
 table {
   width: 100%;
 }
-
-.input {
-  margin-top: 20px;
-}
-
-label, input, select {
-  display:block;
-  margin-top: 5px;
-}
-
-label, p {
-  font-weight: bold;
-}

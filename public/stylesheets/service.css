@@ -17,3 +17,16 @@ a span {
   display: flex;
   justify-content: space-between;
 }
+
+.input {
+  margin-top: 20px;
+}
+
+label, input, select {
+  display:block;
+  margin-top: 5px;
+}
+
+label, p {
+  font-weight: bold;
+}

@@ -27,6 +27,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/new', async (req, res) => {
   const time = req.body.time
+  const template = req.body.template
   const db = connectDB()
 
   // Convert empty string variables to null
@@ -34,7 +35,7 @@ router.post('/new', async (req, res) => {
   let songleader = req.body.songleader != '' ? req.body.songleader : null
   
   try {
-    const update = await db.query('CALL create_service(?, ?, ?, @output)', [time, theme, songleader])
+    const update = await db.query('CALL create_service(?, ?, ?, ?, @output)', [time, theme, songleader, template])
     res.send(update[0][0].status)
   } catch (error) {
     throw error

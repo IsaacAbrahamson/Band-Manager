@@ -36,4 +36,10 @@ html
                 option(value=songleader.id) #{songleader.name}
               else
                 option(value='')
-        input(type="submit" value="CREATE SERVICE")
+        .input
+          label(for="template") Select Template
+          select(id="template" name="template")
+            option(value=1) Morning Service
+            option(value=2) Evening Service
+        .input
+          input(type="submit" value="CREATE SERVICE")
