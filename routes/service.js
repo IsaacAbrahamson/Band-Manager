@@ -1,4 +1,3 @@
-import mysql from 'mysql'
 import { parseDate, formatTime, connectDB } from '../utils.js'
 import express from 'express'
 const router = express.Router()
