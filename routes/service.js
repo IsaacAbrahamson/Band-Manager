@@ -58,6 +58,7 @@ function handleServiceResults(results) {
       organist: serviceItem.Organist,
     })
   }
+  console.log(output)
   return output
 }
 

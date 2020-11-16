@@ -4,12 +4,15 @@ html
     link(rel="stylesheet" type="text/css" href="/stylesheets/style.css")
   body
     a(href='/') HOME
-    h1 Service ##{id}
-    table
-      each row in serviceOutput
-        tr
-          each value in row
-            td= value
+    h1 #{serviceOutput[0].date} #{serviceOutput[0].time} Service
+    h3 Theme: #{serviceOutput[0].theme}
+    h3 Songleader: #{serviceOutput[0].songLeader}
+    h3 Pianist: #{serviceOutput[0].pianist}
+    h3 Organist: #{serviceOutput[0].organist}
+    h3 Service Events:
+    ul
+      each service in serviceOutput
+        li= service.event
 
     form(action="/service/new" method="post")
       p Items marked <span style="color: red;">*</span> are required
