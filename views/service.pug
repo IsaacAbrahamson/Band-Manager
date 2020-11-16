@@ -2,32 +2,38 @@ html
   head
     title= title
     link(rel="stylesheet" type="text/css" href="/stylesheets/style.css")
-  body
-    a(href='/') HOME
-    h1 #{serviceOutput[0].date} #{serviceOutput[0].time} Service
-    h3 Theme: #{serviceOutput[0].theme}
-    h3 Songleader: #{serviceOutput[0].songLeader}
-    h3 Pianist: #{serviceOutput[0].pianist}
-    h3 Organist: #{serviceOutput[0].organist}
-    h3 Service Events:
-    ul
-      each service in serviceOutput
-        li= service.event
+    link(rel="stylesheet" type="text/css" href="/stylesheets/service.css")
+  body  
+    a(href='/') <span>&lsaquo;</span> BACK
 
-    form(action="/service/new" method="post")
-      p Items marked <span style="color: red;">*</span> are required
-      .input
-        label(for="time") Enter time in format "yyyy-mm-dd 17:30": <span style="color: red;">*</span>
-        input(type="text" id="time" name="time" value=time required)
-      .input
-        label(for="theme") Enter theme:
-        input(type="text" id="theme" name="theme" value=theme)
-      .input
-        label(for="songleader") Select Songleader
-        select(id="songleader" name="songleader")
-          each songleader in slOutput
-            unless songleader == null
-              option(value=songleader.id) #{songleader.name}
-            else
-              option(value='')
-      input(type="submit" value="CREATE SERVICE")
+    .container
+      h1 #{serviceOutput[0].date} #{serviceOutput[0].time} Service
+      .info
+        h3 Theme: #{serviceOutput[0].theme}
+        h3 Songleader: #{serviceOutput[0].songLeader}
+        h3 Pianist: #{serviceOutput[0].pianist}
+        h3 Organist: #{serviceOutput[0].organist}
+      h3 Service Events:
+      ul
+        each service in serviceOutput
+          li= service.event
+
+    .container
+      h1 Create New Service
+      form(action="/service/new" method="post")
+        p Items marked <span style="color: red;">*</span> are required
+        .input
+          label(for="time") Enter time in format "yyyy-mm-dd 17:30": <span style="color: red;">*</span>
+          input(type="text" id="time" name="time" value=time required)
+        .input
+          label(for="theme") Enter theme:
+          input(type="text" id="theme" name="theme" value=theme)
+        .input
+          label(for="songleader") Select Songleader
+          select(id="songleader" name="songleader")
+            each songleader in slOutput
+              unless songleader == null
+                option(value=songleader.id) #{songleader.name}
+              else
+                option(value='')
+        input(type="submit" value="CREATE SERVICE")
