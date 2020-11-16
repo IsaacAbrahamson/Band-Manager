@@ -1,0 +1,15 @@
+html
+  head
+    title= title
+    link(rel="stylesheet" type="text/css" href="/stylesheets/style.css")
+    link(rel="stylesheet" type="text/css" href="/stylesheets/service.css")
+    link(rel="stylesheet" type="text/css" href="/stylesheets/status.css")
+  body  
+    a(href='/') <span>&lsaquo;</span> BACK
+    .container
+      h1 Service Manager
+      if status == 'SUCCESS'
+        p.success <span>SUCCESS!</span> Database updated successfully.
+      else
+        p.failure <span>ERROR!</span> Database encountered following problem:
+        p.failure= status

@@ -36,7 +36,8 @@ router.post('/new', async (req, res) => {
   
   try {
     const update = await db.query('CALL create_service(?, ?, ?, ?, @output)', [time, theme, songleader, template])
-    res.send(update[0][0].status)
+    console.log(update[0][0].status)
+    res.render('status', {status: update[0][0].status})
   } catch (error) {
     throw error
   } finally {

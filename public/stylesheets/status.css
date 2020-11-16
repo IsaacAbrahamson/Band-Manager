@@ -1,0 +1,16 @@
+p.success, p.failure {
+  font-weight: normal;
+}
+
+p span {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+p.success span {
+  color: green;
+}
+
+p.failure span {
+  color: red;
+}
