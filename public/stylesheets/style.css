@@ -1,15 +1,57 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #444;
+}
+
+.container {
+  background: #f7f7f7;
+  max-width: 65%;
+  margin: 0 auto;
+  padding: 3%;
+  border-radius: 15px;
+  position:relative;
+  box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  margin-bottom: 50px;
+}
+.container:before, .container:after
+{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  box-shadow:0 0 20px rgba(0,0,0,0.8);
+  top:50%;
+  bottom:0;
+  left:10px;
+  right:10px;
+  border-radius:100px / 10px;
+}
+.container:after
+{
+  right:10px;
+  left:auto;
+  transform:skew(8deg) rotate(3deg);
+}
+
+h1 {
+  margin-top: 0;
 }
 
 a {
-  color: #00B7FF;
+  color: #0095ff;
+  text-decoration: none;
 }
 
 table, th, td {
-  border: 1px solid black;
+  border: 0;
 }
+
+tr {
+  cursor: pointer;
+}
+
+tr:nth-child(even) {background: #e6e6e6}
+tr:nth-child(odd) {background: #fff}
 
 table {
   width: 100%;

@@ -1,14 +1,18 @@
 html
   head
-    title= title
+    title Service Manager
     link(rel="stylesheet" type="text/css" href="/stylesheets/style.css")
   body
-    h1= message
-    table
-      each row in output
+    .container
+      h1 Service Manager
+      p Click on service for details
+      table
         tr
-          td= row.date
-          td= row.time
-          td= row.theme
-          td
-            a(href='/service/' + row.id) Explore
+          th DATE
+          th TIME
+          th THEME
+        each row in output
+          tr(onclick='window.location="/service/' + row.id + '";')
+            td= row.date
+            td= row.time
+            td= row.theme

@@ -7,11 +7,7 @@ router.get('/', async (req, res) => {
   try {
     const results = await db.query('SELECT * FROM service')
     let output = handleResults(results)
-    res.render('index', {
-      title: 'Service Manager',
-      message: 'Service Manager',
-      output
-    })
+    res.render('index', { output })
   } catch (error) {
     throw error
   } finally {
