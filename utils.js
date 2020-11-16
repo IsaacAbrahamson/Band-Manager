@@ -27,7 +27,7 @@ function parseDate(timestamp) {
 function formatTime(timestamp) {
   let datetime = new Date(Date.parse(timestamp))
   let date = datetime.getFullYear() + '-' + ((datetime.getMonth() > 8) ? (datetime.getMonth() + 1) : ('0' + (datetime.getMonth() + 1))) + '-' + ((datetime.getDate() > 9) ? datetime.getDate() : ('0' + datetime.getDate()))
-  let time = datetime.toLocaleTimeString().replace(/:\d+ /, ' ').slice(0, -3)
+  let time = `${datetime.getHours()}:${datetime.getMinutes()}`
   return date + ' ' + time
 }
 
