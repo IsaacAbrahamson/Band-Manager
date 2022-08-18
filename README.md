@@ -10,6 +10,10 @@ To run the project, you will need to have Node and MySQL installed on your compu
 
 Restore the MySQL database:
 ```
+sudo mysql
+CREATE DATABASE services;
+exit
+
 sudo mysql -u <user> -p<password> services < services.sql
 ```
 
