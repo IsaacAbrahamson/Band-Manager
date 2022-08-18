@@ -10,7 +10,7 @@ To run the project, you will need to have Node and MySQL installed on your compu
 
 Restore the MySQL database:
 ```
-mysql -u <user> -p<password> services < services.dump
+sudo mysql -u <user> -p<password> services < services.sql
 ```
 
 Install NPM modules:
