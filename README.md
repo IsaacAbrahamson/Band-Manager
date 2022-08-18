@@ -24,12 +24,13 @@ npm install
 
 Create a .env file:
 ```
-DB_HOST="localhost"
+DB_HOST="127.0.0.1"
 DB_PORT="3306"
-DB_USER="user"
-DB_PASSWORD="userpass"
+DB_USER="serviceuser"
+DB_PASSWORD="servicepassword"
 DB_DATABASE="services"
 PORT="3000"
+SOCKET="/var/run/mysqld/mysqld.sock"
 ```
 
 Run the application
