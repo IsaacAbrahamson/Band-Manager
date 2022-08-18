@@ -24,7 +24,7 @@ router.get('/:id', async (req, res) => {
 
     // Retrieve list of songleaders for create form
     const songleaders = await db.query('SELECT * FROM songleader_list')
-    let slOutput = handleSongleaderResults(songleaders)
+    let slOutput = handleSongleaderResults(songleaders[0])
 
     res.render('service', { id, serviceOutput, slOutput, theme, time })
   } catch (error) {
