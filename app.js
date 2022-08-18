@@ -1,6 +1,5 @@
 // Load ENV variables
-import env from 'dotenv'
-env.config()
+import 'dotenv/config'
 
 // Load HTTP dependencies
 import createError from 'http-errors'
@@ -51,7 +50,7 @@ app.use((err, req, res, next) => {
 
   // render the error page
   res.status(err.status || 500)
-  res.render('error', {err})
+  res.render('error', { err })
 })
 
 export default app
