@@ -182,6 +182,13 @@ To add a new service, use the form at a bottom of a service item to use that ser
 
 ![image](https://user-images.githubusercontent.com/17521691/185766719-2588a552-d1a3-4f80-864e-0174955f3ea4.png)
 
+You will get a success or error message.
+
+![image](https://user-images.githubusercontent.com/17521691/185767020-88edd2b2-3d7c-4edd-bda0-3cffd0e3f729.png)
+
+![image](https://user-images.githubusercontent.com/17521691/185767032-56adfd60-6352-49b6-9a66-f6159220ce37.png)
+
+
 ## Installation
 
 To run the project, you will need to have Node and MySQL installed on your computer.
