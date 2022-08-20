@@ -1,8 +1,8 @@
 ## Database Application
 
-Visit at:
+Simple CRUD app built on top of MySQL database.
 
-https://glacial-springs-05206.herokuapp.com/
+https://bandmanager.iabrahamson.com/
 
 ## Installation
 
