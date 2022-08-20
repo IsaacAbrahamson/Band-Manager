@@ -12,7 +12,7 @@ The class project consisted of three parts:
 - Designed an ERD based on project requirements
 - Built MySQL databsase from ERD
 - Views and Stored Procedures to make operations easier
-- Simple [CRUD application](https://bandmanager.iabrahamson.com/) to interact with database
+- Simple [CRUD application](https://bandmanager.iabrahamson.com/) using Express.js to interact with database
 - Placeholder code prevents SQL injection attacks
 
 ## Project Requirements
