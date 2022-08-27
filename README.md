@@ -1,6 +1,6 @@
 ## Band Manager
 
-This project is a complete database application that I designed and built for CpS 301: Intro to Database Management Systems.
+This project is a complete database application that I designed and built for CpS 301: Intro to Database Management Systems in November, 2020.
 
 The class project consisted of three parts:
 - Part 1: Design an ERD based on project requirements
